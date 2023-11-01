@@ -142,14 +142,18 @@ class SiteController extends Controller
         }
         return $this->render('userForm', ['model' => $model]);
     }
-    public function actionUserForm2()
+    public function actionUserform2()
     {
 
         $model = new UserForm2();
 
         if ($model->load(yii::$app->request->post()) && $model->validate()) {
-        } else {
-            return $this->render('userForm');
+
+            yii::$app->session->setFlash('good', 'success');
         }
+        return $this->render(
+            'userForm',
+            ['model' => $model]
+        );
     }
 }

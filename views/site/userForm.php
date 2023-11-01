@@ -8,6 +8,8 @@ use yii\widgets\ActiveField;
 ?>
 <?php
 if (Yii::$app->session->hasFlash('success')) {
+} elseif (Yii::$app->session->hasFlash('good')) {
+    echo '<div class="alert alert-success">' . Yii::$app->session->getFlash('good') . "</div>";
 }
 ?>
 <?php
